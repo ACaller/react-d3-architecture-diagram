@@ -1,4 +1,14 @@
-#Sample Input
+#Example diagram
+![image of architecture diagram](https://github.com/ACaller/react-d3-architecture-diagram/blob/master/src/example/example-screenshot.png?raw=true)
+
+##Usage
+Use this diagram to visualise the state of deployments or just to draw out architecture. 
+I use it in combination with a script that gets all kubernetes deployments and github versions to check that what we think has deployed actually has, and added some dropdowns to flick between environments or change the most upstream service.
+
+See when deployments are out of sync with their corresponding branch versions, when services are calling deprecated code or when you forgot to tag your prod release!
+
+#Example Input
+
 
 ```json
 {

@@ -36,9 +36,8 @@ const sortedObjectToArray = obj => {
 };
 
 const calculateDepthAndSiblings = (serviceData, startingService) => {
-  //1 add parent and depth
-  //2 count by depth - add siblings (set index as u go)
-let result = {} // mergeDeepRight(serviceData, {});
+ 
+let result = {} 
   result[startingService] = {
     ...serviceData[startingService],
     siblings: 0,
@@ -47,9 +46,7 @@ let result = {} // mergeDeepRight(serviceData, {});
   };
 
   addParentAndDepth(result[startingService], serviceData, result);
-console.log({result, startingService})
   let depthGroups = groupBy(prop("depth"), objToArray(result));
-  // delete depthGroups['undefined'];
 
   forEachObjIndexed((services, depth) => {
     const siblings = services.length-1;
@@ -59,8 +56,6 @@ console.log({result, startingService})
     })
   }, depthGroups);
 
-  // console.log({startingService, final: JSON.stringify(result), depthGroups});
-  console.log({depthGroups, result})
   return sortedObjectToArray(result);
 };
 
