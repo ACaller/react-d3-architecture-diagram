@@ -30,7 +30,6 @@ class Diagram extends Component {
   }
 
   componentDidMount() {
-    console.log(JSON.stringify(this.props.serviceData))
     this.drawChart(this.props.serviceData);
   }
 
@@ -52,7 +51,6 @@ class Diagram extends Component {
       params,
       this.props.dataOptions.startingService
     );
-    console.log({ params, preparedData, dataOptions: this.props.dataOptions });
 
     const { y, width, height, theme } = this.state;
     const { x, radius, buffer } = diagramConstants;
