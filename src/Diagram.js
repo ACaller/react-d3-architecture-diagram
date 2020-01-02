@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { forEachObjIndexed } from "ramda";
 import * as d3 from "d3";
-import { calculateData2 } from "./calculate-data-points";
+import { calculateData } from "./calculate-data-points";
 import drawService from "./draw-service";
 import drawMessageLine from "./draw-message-line";
 import { onDragEnd, onDragStart, onDragging } from "./dragger";
@@ -82,7 +82,7 @@ class Diagram extends Component {
 
     let services = {};
     preparedData.forEach(value => {
-      services[value.name] = calculateData2(
+      services[value.name] = calculateData(
         buffer,
         radius,
         x,

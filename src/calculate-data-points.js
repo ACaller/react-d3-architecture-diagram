@@ -52,46 +52,7 @@ const calcYPositions = (items, index, radius, buffer, y) => {
   }
 };
 
-const calculateDataPoints = (
-  parent,
-  generation,
-  siblings,
-  index,
-  self,
-  buffer,
-  radius,
-  xStart,
-  yStart
-) => {
-  const x = step(xStart, radius, buffer.x)(generation);
-  const y = calcYPositions(
-    siblings,
-    index,
-    radius,
-    buffer.y,
-    parent && parent.exitPoint && parent.exitPoint.y
-      ? parent.exitPoint.y
-      : yStart
-  );
-  const hexagonPoints = buildHexagonData(x, y, radius);
-  const entryPoint = getHexagonEntryPoint(x, y, radius);
-  const exitPoint = getHexagonExitPoint(x, y, radius);
-
-  return {
-    x,
-    y,
-    hexagonPoints,
-    entryPoint,
-    exitPoint,
-    radius,
-    buffer,
-    name: self.name,
-    version: self.version,
-    selfRouting: self.selfRouting
-  };
-};
-
-const calculateData2 = (buffer, radius, xStart, yStart) => ({
+const calculateData = (buffer, radius, xStart, yStart) => ({
   parent,
   depth,
   siblings,
@@ -104,9 +65,7 @@ const calculateData2 = (buffer, radius, xStart, yStart) => ({
     index,
     radius,
     buffer.y,
-    parent && parent.exitPoint && parent.exitPoint.y
-      ? parent.exitPoint.y
-      : yStart
+    yStart
   );
   const hexagonPoints = buildHexagonData(x, y, radius);
   const entryPoint = getHexagonEntryPoint(x, y, radius);
@@ -123,4 +82,4 @@ const calculateData2 = (buffer, radius, xStart, yStart) => ({
     ...serviceData
   };
 };
-export { calculateDataPoints, calculateData2 };
+export { calculateData };
